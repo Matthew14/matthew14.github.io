@@ -16,6 +16,11 @@ import {
 } from '@tabler/icons-react';
 import type { Icon } from '@tabler/icons-react';
 
+const AVATAR_SIZE = 180;
+const ICON_SIZE = 28;
+const ICON_STROKE = 1.5;
+const CONTENT_MAX_WIDTH = 450;
+
 const socialLinks: { icon: Icon; href: string; label: string }[] = [
   { icon: IconBrandGithub, href: 'https://github.com/Matthew14', label: 'GitHub' },
   { icon: IconBrandLinkedin, href: 'https://www.linkedin.com/in/matthewponeill/', label: 'LinkedIn' },
@@ -38,8 +43,8 @@ export function Hero() {
           <Avatar
             src="/me.png"
             alt="Matthew"
-            size={180}
-            radius={180}
+            size={AVATAR_SIZE}
+            radius={AVATAR_SIZE}
             className="fade-in"
             style={{
               border: '3px solid var(--mantine-color-violet-6)',
@@ -65,7 +70,7 @@ export function Hero() {
             c="dimmed"
             ta="center"
             className="fade-in-delay-2"
-            style={{ maxWidth: 450 }}
+            style={{ maxWidth: CONTENT_MAX_WIDTH }}
           >
             Senior Engineer @{' '}
             <Anchor
@@ -84,7 +89,7 @@ export function Hero() {
             c="dimmed"
             ta="center"
             className="fade-in-delay-2"
-            style={{ maxWidth: 450, opacity: 0.6, letterSpacing: '0.05em' }}
+            style={{ maxWidth: CONTENT_MAX_WIDTH, opacity: 0.6, letterSpacing: '0.05em' }}
           >
             React · TypeScript · .NET · Java · Node.js
           </Text>
@@ -104,7 +109,7 @@ export function Hero() {
                 aria-label={label}
                 className="social-icon"
               >
-                <Icon size={28} stroke={1.5} />
+                <Icon size={ICON_SIZE} stroke={ICON_STROKE} />
               </ActionIcon>
             ))}
           </Group>

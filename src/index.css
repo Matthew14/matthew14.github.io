@@ -48,3 +48,17 @@ body,
   transform: scale(1.1);
   color: var(--mantine-color-violet-5);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in,
+  .fade-in-delay-1,
+  .fade-in-delay-2,
+  .fade-in-delay-3 {
+    animation: none;
+    opacity: 1;
+  }
+
+  .social-icon {
+    transition: none;
+  }
+}
