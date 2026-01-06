@@ -14,6 +14,13 @@ import {
   IconBrandLinkedin,
   IconBrandInstagram,
 } from '@tabler/icons-react';
+import type { Icon } from '@tabler/icons-react';
+
+const socialLinks: { icon: Icon; href: string; label: string }[] = [
+  { icon: IconBrandGithub, href: 'https://github.com/Matthew14', label: 'GitHub' },
+  { icon: IconBrandLinkedin, href: 'https://www.linkedin.com/in/matthewponeill/', label: 'LinkedIn' },
+  { icon: IconBrandInstagram, href: 'https://www.instagram.com/matthewponeill/', label: 'Instagram' },
+];
 
 export function Hero() {
   return (
@@ -83,74 +90,23 @@ export function Hero() {
           </Text>
 
           <Group gap="md" className="fade-in-delay-3" mt="md">
-            <ActionIcon
-              component="a"
-              href="https://github.com/Matthew14"
-              target="_blank"
-              rel="noopener noreferrer"
-              size="xl"
-              radius="xl"
-              variant="subtle"
-              color="gray"
-              aria-label="GitHub"
-              style={{ transition: 'transform 0.2s, color 0.2s' }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'scale(1.1)';
-                e.currentTarget.style.color = 'var(--mantine-color-violet-5)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'scale(1)';
-                e.currentTarget.style.color = '';
-              }}
-            >
-              <IconBrandGithub size={28} stroke={1.5} />
-            </ActionIcon>
-
-            <ActionIcon
-              component="a"
-              href="https://www.linkedin.com/in/matthewponeill/"
-              target="_blank"
-              rel="noopener noreferrer"
-              size="xl"
-              radius="xl"
-              variant="subtle"
-              color="gray"
-              aria-label="LinkedIn"
-              style={{ transition: 'transform 0.2s, color 0.2s' }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'scale(1.1)';
-                e.currentTarget.style.color = 'var(--mantine-color-violet-5)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'scale(1)';
-                e.currentTarget.style.color = '';
-              }}
-            >
-              <IconBrandLinkedin size={28} stroke={1.5} />
-            </ActionIcon>
-
-            <ActionIcon
-              component="a"
-              href="https://www.instagram.com/matthewponeill/"
-              target="_blank"
-              rel="noopener noreferrer"
-              size="xl"
-              radius="xl"
-              variant="subtle"
-              color="gray"
-              aria-label="Instagram"
-              style={{ transition: 'transform 0.2s, color 0.2s' }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'scale(1.1)';
-                e.currentTarget.style.color = 'var(--mantine-color-violet-5)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'scale(1)';
-                e.currentTarget.style.color = '';
-              }}
-            >
-              <IconBrandInstagram size={28} stroke={1.5} />
-            </ActionIcon>
+            {socialLinks.map(({ icon: Icon, href, label }) => (
+              <ActionIcon
+                key={label}
+                component="a"
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                size="xl"
+                radius="xl"
+                variant="subtle"
+                color="gray"
+                aria-label={label}
+                className="social-icon"
+              >
+                <Icon size={28} stroke={1.5} />
+              </ActionIcon>
+            ))}
           </Group>
         </Stack>
       </Container>
